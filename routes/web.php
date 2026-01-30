@@ -12,8 +12,8 @@ Route::get('/', function () {
 });
 
 // User Authentication Routes
-Route::get('/user/login', \App\Livewire\Auth\UserLogin::class)->name('user.login');
-Route::get('/user/register', \App\Livewire\Auth\UserRegister::class)->name('user.register');
+Route::get('/user/login', \App\Livewire\Auth\UserLogin::class)->name('login');
+Route::get('/user/register', \App\Livewire\Auth\UserRegister::class)->name('register');
 
 // Admin Authentication Routes
 Route::prefix('admin')->name('admin.')->group(function () {

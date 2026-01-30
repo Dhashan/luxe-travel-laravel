@@ -36,8 +36,8 @@
                 <div class="bg-white/10 backdrop-blur-2xl border border-white/20 p-8 lg:p-12 rounded-[2.5rem] lg:rounded-[3.5rem] hover:bg-white/20 transition group shadow-2xl">
                     <p class="text-[8px] lg:text-[10px] font-black uppercase tracking-widest text-white/40 mb-6 lg:mb-8 block">Client Access</p>
                     <div class="space-y-4">
-                        <a href="{{ route('user.login') }}" class="block w-full py-4 lg:py-5 bg-yellow-600 text-white rounded-full text-[10px] lg:text-xs font-black uppercase tracking-widest hover:bg-yellow-700 transition shadow-xl">Private Login</a>
-                        <a href="{{ route('user.register') }}" class="block w-full py-4 lg:py-5 border border-white/20 text-white rounded-full text-[10px] lg:text-xs font-black uppercase tracking-widest hover:bg-white hover:text-black transition">Apply for Membership</a>
+                        <a href="{{ route('login') }}" class="block w-full py-4 lg:py-5 bg-yellow-600 text-white rounded-full text-[10px] lg:text-xs font-black uppercase tracking-widest hover:bg-yellow-700 transition shadow-xl">Private Login</a>
+                        <a href="{{ route('register') }}" class="block w-full py-4 lg:py-5 border border-white/20 text-white rounded-full text-[10px] lg:text-xs font-black uppercase tracking-widest hover:bg-white hover:text-black transition">Apply for Membership</a>
                     </div>
                 </div>
 

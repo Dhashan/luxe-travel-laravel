@@ -56,7 +56,7 @@
                 <div class="text-center pt-8 border-t border-gray-50">
                     <p class="text-[8px] lg:text-[10px] font-black uppercase tracking-widest text-gray-400">
                         Already have access? 
-                        <a href="{{ route('user.login') }}" class="text-yellow-600 hover:text-black transition ml-2 italic">
+                        <a href="{{ route('login') }}" class="text-yellow-600 hover:text-black transition ml-2 italic">
                             Sign in to Portal &rarr;
                         </a>
                     </p>
