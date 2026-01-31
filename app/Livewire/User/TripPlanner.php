@@ -4,12 +4,14 @@ namespace App\Livewire\User;
 
 use Livewire\Component;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Layout;
 use App\Models\Destination;
 use App\Models\Experience;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
+#[Layout('layouts.app')]
 class TripPlanner extends Component
 {
     public $step = 1;
@@ -143,6 +145,6 @@ class TripPlanner extends Component
         return view('livewire.trip-planner', [
             'destinations' => $destinations,
             'experiences' => $experiences,
-        ])->layout('layouts.app');
+        ]);
     }
 }

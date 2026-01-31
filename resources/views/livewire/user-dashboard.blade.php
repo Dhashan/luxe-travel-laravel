@@ -110,7 +110,7 @@
                 @else
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
                         @foreach($recentBookings as $index => $booking)
-                            <article class="group bg-white rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition animate-in fade-in slide-in-from-bottom-8 duration-700" style="animation-delay: {{ 600 + ($index * 100) }}ms;">
+                            <article class="group bg-white rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition animate-in fade-in slide-in-from-bottom-8 duration-700" @style(['animation-delay: ' . (600 + ($index * 100)) . 'ms'])>
                                 <div class="h-48 lg:h-64 relative overflow-hidden">
                                     <img src="{{ $booking->destination->image_url ?: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=800' }}" 
                                          class="w-full h-full object-cover transition duration-1000 group-hover:scale-110">
