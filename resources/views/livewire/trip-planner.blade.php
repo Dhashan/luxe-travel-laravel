@@ -262,7 +262,7 @@
                                 </div>
                                 <div>
                                     <p class="text-[8px] lg:text-[10px] font-black uppercase tracking-widest text-gray-300 mb-1">Traveling Party</p>
-                                    <h4 class="text-lg lg:text-xl font-black text-gray-900">{{ guests }} {{ Str::plural('Guest', $guests) }}</h4>
+                                    <h4 class="text-lg lg:text-xl font-black text-gray-900">{{ $guests }} {{ Str::plural('Guest', $guests) }}</h4>
                                 </div>
                             </div>
                         </div>
