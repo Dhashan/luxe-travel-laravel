@@ -12,8 +12,21 @@ Route::get('/', function () {
 });
 
 // User Authentication Routes
-Route::get('/user/login', \App\Livewire\Auth\UserLogin::class)->name('login');
-Route::get('/user/register', \App\Livewire\Auth\UserRegister::class)->name('register');
+if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::registration())) {
+    Route::get('/register', \App\Livewire\Auth\UserRegister::class)->name('register');
+}
+Route::get('/login', \App\Livewire\Auth\UserLogin::class)->name('login');
+
+// Password Reset Routes
+if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::resetPasswords())) {
+    Route::get('/forgot-password', function () {
+        return view('auth.forgot-password');
+    })->middleware(['guest'])->name('password.request');
+
+    Route::get('/reset-password/{token}', function (Illuminate\Http\Request $request, $token) {
+        return view('auth.reset-password', ['request' => $request, 'token' => $token]);
+    })->middleware(['guest'])->name('password.reset');
+}
 
 // Admin Authentication Routes
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -30,6 +43,10 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+    Route::get('/user/confirm-password', function (Illuminate\Http\Request $request) {
+        return view('auth.confirm-password', ['request' => $request]);
+    })->name('password.confirm');
+
     Route::get('/dashboard', \App\Livewire\UserDashboard::class)->name('dashboard');
     Route::get('/trip-planner', \App\Livewire\User\TripPlanner::class)->name('user.planner');
     Route::get('/my-itineraries', \App\Livewire\User\MyBookings::class)->name('user.bookings');

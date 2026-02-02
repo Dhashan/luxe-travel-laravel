@@ -17,7 +17,7 @@ class RegistrationTest extends TestCase
             $this->markTestSkipped('Registration support is not enabled.');
         }
 
-        $response = $this->get('/register');
+        $response = $this->get(route('register'));
 
         $response->assertStatus(200);
     }
@@ -28,7 +28,10 @@ class RegistrationTest extends TestCase
             $this->markTestSkipped('Registration support is enabled.');
         }
 
-        $response = $this->get('/register');
+        // Since we explicitly defined the route in web.php, it will exist.
+        // If we want to test disabled registration, we would need to remove the route.
+        // For now, we point to the route name to see if it even exists.
+        $response = $this->get(route('register'));
 
         $response->assertStatus(404);
     }
@@ -39,7 +42,7 @@ class RegistrationTest extends TestCase
             $this->markTestSkipped('Registration support is not enabled.');
         }
 
-        $response = $this->post('/register', [
+        $response = $this->post(route('register'), [
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => 'password',
